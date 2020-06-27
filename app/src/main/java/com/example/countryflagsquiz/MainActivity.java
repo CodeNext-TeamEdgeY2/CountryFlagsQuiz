@@ -2,20 +2,26 @@ package com.example.countryflagsquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.View;
 
-import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView picture;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        picture = findViewById(R.id.imageView);
-        Picasso.get().load("https://www.countryflags.io/AM/flat/64.png").into(picture);
+    public void openQuestionsActivity(View view) {
+        Intent openQuestionsActivity = new Intent(MainActivity.this, QuestonsActivity.class);
+        startActivity(openQuestionsActivity);
+    }
+
+    public void openLeaderboardActivity(View view) {
+        Intent openLeaderboardActivity = new Intent(MainActivity.this, LeaderboardActivity.class);
+        startActivity(openLeaderboardActivity);
     }
 }
